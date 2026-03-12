@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+pandas
+numpy
+scikit-learn
+joblib
+beautifulsoup4
+requests
+python-dateutil
+scipy

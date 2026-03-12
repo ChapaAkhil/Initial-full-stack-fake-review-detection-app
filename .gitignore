@@ -1,0 +1,9 @@
+.venv
+node_modules
+__pycache__
+.env
+.env.local
+.DS_Store
+
+backend/model.pkl
+backend/vectorizer.pkl
