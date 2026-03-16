@@ -1,4 +1,5 @@
 import logging
+import os
 from typing import Any
 
 import joblib
@@ -16,6 +17,10 @@ class ModelArtifacts:
         self.fake_label = self._infer_fake_label()
 
     def _infer_fake_label(self) -> Any:
+        env_label = os.getenv("FAKE_LABEL")
+        if env_label is not None:
+            return self._coerce_label(env_label)
+
         classes = list(getattr(self.model, "classes_", []))
         lowered = [str(c).lower() for c in classes]
 
@@ -30,6 +35,12 @@ class ModelArtifacts:
             return classes[-1]
 
         raise ValueError("Model classes are missing; cannot infer fake label.")
+
+    def _coerce_label(self, value: str) -> Any:
+        try:
+            return int(value)
+        except ValueError:
+            return value
 
     def predict(self, df):
         X_text = self.vectorizer.transform(df["review_text"])

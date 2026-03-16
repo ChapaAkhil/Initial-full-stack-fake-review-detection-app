@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 
 NUM_FEATURES = [
+    "rating",
     "pos_rating_pct",
     "review_len",
     "burstiness",
