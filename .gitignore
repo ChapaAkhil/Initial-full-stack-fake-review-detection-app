@@ -7,3 +7,10 @@ __pycache__
 
 backend/model.pkl
 backend/vectorizer.pkl
+frontend/.vite
+_notebook_code.py
+backend/confusion_matrix.png
+backend/feature_columns.pkl
+backend/label_mapping.pkl
+Initial-full-stack-fake-review-detection-app/
+package-lock.json
